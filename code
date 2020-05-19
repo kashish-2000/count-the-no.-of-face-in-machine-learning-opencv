@@ -1,0 +1,18 @@
+# importing library
+import cv2
+faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+img = cv2.imread('humans.jpg')
+faces1 = faceCascade.detectMultiScale(img, scaleFactor=1.2, minNeighbors=5, minSize=(20, 20))
+count=0
+for (x,y,w,h) in faces1:
+    cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),3)
+    count+=1
+    
+v2.imwrite('faces.jpg',img)
+cv2.imshow('faces',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+print("No. Of Faces : ",count)
+
+OUTPUT
+No. of faces : 2
